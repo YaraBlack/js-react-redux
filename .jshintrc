@@ -1,0 +1,9 @@
+{
+  "undef": true,
+  "curly": true,
+  "strict": false,
+  "browser": true,
+  "devel": true,
+  "jquery": true,
+  "esversion": 6
+}
