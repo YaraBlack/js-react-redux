@@ -34,4 +34,10 @@ let stringVar = "qwerty";
 let symVar = Symbol("qwe");
 console.log(symVar);
 console.log(symVar.description);
+
 //Objects - collections of properties
+//Dates, Arrays, Functions, Objects
+let today = new Date();
+console.log(today);
+
+let qwew = [1, "w", true];
