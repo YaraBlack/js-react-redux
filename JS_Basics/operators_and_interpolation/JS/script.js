@@ -58,3 +58,8 @@ console.log(someVar || anotherVar); //false
 
 let q = true;
 console.log(!q); // false
+
+//Ternary operator
+//(condition) ? exec if true : exec if false
+let someNumber = 2;
+someNumber === 2 ? console.log("Equal") : console.log("Not equal");
