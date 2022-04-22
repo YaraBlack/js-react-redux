@@ -31,8 +31,6 @@ const personalMovieDB = {
   genres: [],
   privat: false,
 };
-let i = 0;
-let movies = {};
 
 let a = prompt("Name of the last seen film?", ""),
   b = prompt("Your score?", ""),
