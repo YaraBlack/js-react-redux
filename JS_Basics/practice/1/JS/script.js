@@ -33,11 +33,12 @@ const personalMovieDB = {
 };
 let i = 0;
 let movies = {};
-while (i < numberOfFilms) {
-  let a = prompt("Name of the last seen film?", ""),
-    b = prompt("Your score?", "");
-  personalMovieDB.movies[a] = b;
-  i++;
-}
+
+let a = prompt("Name of the last seen film?", ""),
+  b = prompt("Your score?", ""),
+  c = prompt("Name of the last seen film?", ""),
+  d = prompt("Your score?", "");
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
