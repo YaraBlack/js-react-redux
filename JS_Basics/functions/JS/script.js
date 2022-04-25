@@ -21,3 +21,11 @@ const qwe = function () {};
 //Arrow function
 const a = (a, b) => a + b;
 console.log(a(2, 3));
+
+//Callback functions - calls a function inside another function and in the right order
+function learnJS(lang, callback) {
+  console.log(`I learn: ${lang}`);
+  callback();
+}
+
+learnJS("JavaScript", () => console.log("Done"));
