@@ -40,7 +40,8 @@ export default (function () {
       }
     });
 
-    const modalTimerId = setTimeout(openModal, 5000);
+    // disabled during dev
+    // const modalTimerId = setTimeout(openModal, 5000);
 
     function showModalByScroll() {
       if (
