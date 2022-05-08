@@ -63,3 +63,36 @@ console.log(!q); // false
 //(condition) ? exec if true : exec if false
 let someNumber = 2;
 someNumber === 2 ? console.log("Equal") : console.log("Not equal");
+
+// Spread operator
+
+const video = ["youtube", "vimeo", "rutube"],
+  blogs = ["wordpress", "livejournal", "blogger"],
+  internet = [...video, ...blogs, "vk", "facebook"];
+
+console.log(internet);
+
+function log(a, b, c) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+const num = [2, 5, 7];
+
+// Rest operator
+
+const log1 = function (a, b, ...rest) {
+  console.log(a, b, rest);
+};
+
+log1("basic", "rest", "operator", "usage");
+
+// Arguments by default
+
+function calcOrDouble(number, basis = 2) {
+  // basis = basis || 2;
+  console.log(number * basis);
+}
+
+calcOrDouble(3);
