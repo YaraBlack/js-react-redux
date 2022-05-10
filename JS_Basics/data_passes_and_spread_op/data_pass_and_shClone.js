@@ -71,6 +71,14 @@ newArray[1] = "x";
 console.log(newArray);
 console.log(oldArray);
 
+// deep clone
+const deepClone = JSON.parse(JSON.stringify(numbers));
+
+deepClone.c.x = 1;
+
+console.log(numbers);
+console.log(deepClone);
+
 //Use of spread operator (...)
 const video = ["youtube", "vimeo", "rutube"],
   blogs = ["wordpress", "livejournal", "blogger"],
@@ -99,5 +107,3 @@ const q = {
 };
 
 const newQ = { ...q };
-
-//(deep clone)
