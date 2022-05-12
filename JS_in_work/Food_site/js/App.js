@@ -1,5 +1,5 @@
-import "./tabs.js";
-import "./timer.js";
-import "./modal_window.js";
-import "./cardsClass.js";
-import "./dataFlow.js";
+import "./modules/tabs.js";
+import "./modules/timer.js";
+import "./modules/modal_window.js";
+import "./modules/cardsClass.js";
+import "./modules/dataFlow.js";
