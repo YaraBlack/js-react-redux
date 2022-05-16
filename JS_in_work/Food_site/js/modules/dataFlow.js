@@ -9,10 +9,23 @@ const message = {
 };
 
 forms.forEach((item) => {
-  postData(item);
+  bindPostData(item);
 });
 
-function postData(form) {
+// async/await - use async before a function, use await before asynchronized code to wait for the result
+const postData = async (url, data) => {
+  const result = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: data,
+  });
+
+  return await result.json();
+};
+
+function bindPostData(form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -28,19 +41,14 @@ function postData(form) {
     // the input's property "name" is required!
     const formData = new FormData(form);
 
-    const object = {};
-    formData.forEach((value, key) => {
-      object[key] = value;
-    });
+    // Transform FormData into Object
+    // const object = {};
+    // formData.forEach((value, key) => {
+    //   object[key] = value;
+    // });
+    const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-    fetch("js/server2.php", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(object),
-    })
-      .then((data) => data.text())
+    postData("http://localhost:3000/requests", json)
       .then((data) => {
         console.log(data);
         showThanksModal(message.success);
@@ -79,6 +87,20 @@ function showThanksModal(message) {
     closeModal();
   }, 4000);
 }
+
+export const getResource = async (url) => {
+  const result = await fetch(url);
+
+  if (!result.ok) {
+    throw new Error(`Can't fetch ${url}, status: ${result.status}`);
+  }
+
+  return await result.json();
+};
+
+// fetch("http://localhost:3000/menu")
+//   .then((data) => data.json())
+//   .then((result) => console.log(result));
 
 // fetch("https://jsonplaceholder.typicode.com/posts", {
 //   method: "Post",
