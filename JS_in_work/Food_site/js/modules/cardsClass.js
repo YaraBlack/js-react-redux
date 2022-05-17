@@ -48,9 +48,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  getResource("http://localhost:3000/menu").then((data) => {
-    //              destructuring using ({})
-    data.forEach(({ img, altimg, title, descr, price }) => {
+  // Third variant using axios library
+  axios.get("http://localhost:3000/menu").then((data) => {
+    data.data.forEach(({ img, altimg, title, descr, price }) => {
       new MenuCard(
         img,
         altimg,
@@ -62,6 +62,22 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Second variant using Fetch API
+  // getResource("http://localhost:3000/menu").then((data) => {
+  //   //              destructuring using ({})
+  //   data.forEach(({ img, altimg, title, descr, price }) => {
+  //     new MenuCard(
+  //       img,
+  //       altimg,
+  //       title,
+  //       descr,
+  //       price,
+  //       ".menu .container"
+  //     ).render();
+  //   });
+  // });
+
+  // First variant without Fetch API and axios library
   // let fitnessMenu = new MenuCard(
   //   "img/tabs/vegy.jpg",
   //   "vegy",
