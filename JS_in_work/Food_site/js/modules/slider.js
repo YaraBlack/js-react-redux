@@ -48,11 +48,20 @@ for (let i = 0; i < slides.length; i++) {
   dots.push(dot);
 }
 
+function changeStrToNumber(str) {
+  return +str.replace(/\D/gi, "");
+}
+
+function changeDotOpacity() {
+  dots.forEach((dot) => (dot.style.opacity = ".5"));
+  dots[slideIndex - 1].style.opacity = 1;
+}
+
 next.addEventListener("click", () => {
-  if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+  if (offset == changeStrToNumber(width) * (slides.length - 1)) {
     offset = 0;
   } else {
-    offset += +width.slice(0, width.length - 2);
+    offset += changeStrToNumber(width);
   }
 
   slidesField.style.transform = `translateX(-${offset}px)`;
@@ -69,15 +78,14 @@ next.addEventListener("click", () => {
     current.textContent = slideIndex;
   }
 
-  dots.forEach((dot) => (dot.style.opacity = ".5"));
-  dots[slideIndex - 1].style.opacity = 1;
+  changeDotOpacity();
 });
 
 prev.addEventListener("click", () => {
   if (offset == 0) {
-    offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+    offset = changeStrToNumber(width) * (slides.length - 1);
   } else {
-    offset -= +width.slice(0, width.length - 2);
+    offset -= changeStrToNumber(width);
   }
 
   slidesField.style.transform = `translateX(-${offset}px)`;
@@ -94,8 +102,7 @@ prev.addEventListener("click", () => {
     current.textContent = slideIndex;
   }
 
-  dots.forEach((dot) => (dot.style.opacity = ".5"));
-  dots[slideIndex - 1].style.opacity = 1;
+  changeDotOpacity();
 });
 
 dots.forEach((dot) => {
@@ -103,7 +110,7 @@ dots.forEach((dot) => {
     const slideTo = e.target.getAttribute("data-slide-to");
 
     slideIndex = slideTo;
-    offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+    offset = changeStrToNumber(width) * (slideTo - 1);
     slidesField.style.transform = `translateX(-${offset}px)`;
 
     if (slides.length < 10) {
@@ -112,8 +119,7 @@ dots.forEach((dot) => {
       current.textContent = slideIndex;
     }
 
-    dots.forEach((dot) => (dot.style.opacity = ".5"));
-    dots[slideIndex - 1].style.opacity = 1;
+    changeDotOpacity();
   });
 });
 
